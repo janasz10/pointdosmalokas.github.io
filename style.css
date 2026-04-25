@@ -23,10 +23,9 @@
   }
   
   body {
-    background-color: var(--bg); /* ✅ fundo preto garantido */
+    background-color: var(--bg);
   }
   
-  /* Sections padrão */
   section {
     padding: 3rem 2rem;
     margin: 0 auto;
@@ -44,7 +43,7 @@
     width: 100%;
     z-index: 99;
     background-color: var(--bg);
-    border-bottom: var(--border); /* opcional, dá acabamento */
+    border-bottom: var(--border);
   }
   
   .header section {
@@ -55,9 +54,8 @@
     padding-bottom: 1.5rem;
   }
   
-  /* (Opcional) limita tamanho do logo */
   .logo img {
-    height: 55px; /* ajuste se quiser maior/menor */
+    height: 55px;
     width: auto;
     display: block;
   }
@@ -96,7 +94,7 @@
     cursor: pointer;
     margin-top: 1rem;
     display: inline-block;
-    border-radius: 0.6rem; /* opcional */
+    border-radius: 0.6rem;
   }
   
   .btn:hover {
@@ -112,9 +110,7 @@
     background: url("tiopatinhas_novo.png");
     background-position: center;
     background-size: cover;
-  
-    /* ✅ Compensa o header fixo sem mexer no body (não “mata” o fundo preto) */
-    padding-top: 90px; /* ajuste conforme altura real do seu header */
+    padding-top: 90px;
   }
   
   .home-container section {
@@ -180,7 +176,7 @@
     width: 100%;
     height: auto;
     display: block;
-    border-radius: 1rem; /* opcional */
+    border-radius: 1rem;
   }
   
   .about .row .content {
@@ -216,7 +212,7 @@
     border: var(--border);
     padding: 5rem;
     cursor: pointer;
-    border-radius: 1rem; /* opcional */
+    border-radius: 1rem;
   }
   
   .menu .box-container .box img {
@@ -252,27 +248,105 @@
   .menu .box-container .box:hover > * {
     color: var(--black);
   }
+
+  /* =========================
+     MAPA RESPONSIVO
+  ========================= */
+  .address iframe {
+    width: 100%;
+    height: 450px;
+    border: 0;
+    border-radius: 1rem;
+  }
+  
+  /* =========================
+     FOOTER / REDES SOCIAIS
+  ========================= */
+  .footer {
+    padding: 3rem 2rem;
+    text-align: center;
+  }
+  
+  .footer .share {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .footer .share a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .footer .share img {
+    transition: transform 0.2s ease, filter 0.2s ease;
+  }
+  
+  .footer .share img:hover {
+    transform: scale(1.12);
+    filter: drop-shadow(0 0 12px rgba(255,255,255,0.35));
+  }
+  
+  /* =========================
+     WHATSAPP FLUTUANTE
+  ========================= */
+  .whatsapp-float {
+    position: fixed;
+    right: 34px;
+    bottom: 34px;
+    width: 70px;
+    height: 70px;
+    background: var(--main-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 99999;
+    box-shadow: 0 0 0 rgba(164, 37, 233, 0.55);
+    animation: whatsappPulse 1.3s infinite, whatsappFloat 1.8s ease-in-out infinite;
+    transition: transform 0.25s ease, filter 0.25s ease;
+    filter: drop-shadow(0 0 18px rgba(164, 37, 233, 0.65));
+  }
+  
+  .whatsapp-float:hover {
+    transform: scale(1.18);
+    filter: drop-shadow(0 0 28px rgba(164, 37, 233, 0.95));
+  }
+  
+  .whatsapp-float img {
+    width: 44px;
+    height: 44px;
+    display: block;
+  }
+  
+  @keyframes whatsappPulse {
+    0%   { box-shadow: 0 0 0 0 rgba(164, 37, 233, 0.65); }
+    70%  { box-shadow: 0 0 0 22px rgba(164, 37, 233, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(164, 37, 233, 0); }
+  }
+  
+  @keyframes whatsappFloat {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-8px); }
+  }
   
   /* =========================
      RESPONSIVO
   ========================= */
-  
-  /* Tablets */
   @media (max-width: 992px) {
     section {
       padding: 2.5rem 1.5rem;
     }
-  
     .navbar a {
       font-size: 1.8rem;
     }
-  
     .home-container section {
       min-height: 85vh;
     }
   }
   
-  /* Celulares */
   @media (max-width: 768px) {
     .header section {
       flex-direction: column;
@@ -280,186 +354,68 @@
       padding-top: 1rem;
       padding-bottom: 1rem;
     }
-  
     .navbar {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 0.8rem;
     }
-  
     .navbar a {
       margin: 0;
       font-size: 1.6rem;
     }
-  
     .icons {
       display: flex;
       justify-content: center;
     }
-  
-    /* ✅ Ajuste do espaço do header no mobile */
     .home-container {
       padding-top: 160px;
     }
-  
     .content {
       max-width: 100%;
     }
-  
     .content h1 {
       font-size: 2.4rem;
     }
-  
     .content h3 {
       font-size: 1.8rem;
     }
-  
     .content p {
       font-size: 1.6rem;
     }
-  
-    /* About empilha */
     .about .row {
       flex-direction: column;
       align-items: center;
       justify-content: center;
     }
-  
     .about .row .content {
       text-align: left;
       padding: 1rem 0;
     }
-  
     .about .row .content h3 {
       font-size: 2.4rem;
     }
-  
-    /* Menu: 1 coluna */
     .menu .box-container {
       grid-template-columns: 1fr;
     }
-  
     .menu .box-container .box {
       padding: 3rem 2rem;
     }
+    .whatsapp-float {
+      right: 16px;
+      bottom: 16px;
+    }
   }
   
-  /* Telas bem pequenas */
   @media (max-width: 420px) {
     .home-container {
       padding-top: 180px;
     }
-  
     .title {
       font-size: 3rem;
     }
-  
     .btn {
       width: 100%;
       text-align: center;
     }
-   \/* =========================
-   MAPA RESPONSIVO
-========================= */
-.address iframe{
-  width: 100%;
-  height: 450px;
-  border: 0;
-  border-radius: 1rem;
-}
-
-/* =========================
-   FOOTER / REDES SOCIAIS
-========================= */
-.footer{
-  padding: 3rem 2rem;
-  text-align: center;
-}
-
-.footer .share{
-  display: flex;
-  gap: 16px;
-  justify-content: center;
-  align-items: center;
-}
-
-.footer .share a{
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.footer .share img{
-  transition: transform 0.2s ease, filter 0.2s ease;
-}
-
-.footer .share img:hover{
-  transform: scale(1.12);
-  filter: drop-shadow(0 0 12px rgba(255,255,255,0.35));
-}
-
-/* =========================
-   WHATSAPP FLUTUANTE - SUPER DESTAQUE
-========================= */
-.whatsapp-float{
-  position: fixed;
-
-  /* mais pra dentro do canto (não fica colado) */
-  right: 34px;
-  bottom: 34px;
-
-  width: 70px;
-  height: 70px;
-
-  background: var(--main-color);
-  border-radius: 50%;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  z-index: 99999;
-
-  /* brilho + pulso + movimento */
-  box-shadow: 0 0 0 rgba(164, 37, 233, 0.55);
-  animation: whatsappPulse 1.3s infinite, whatsappFloat 1.8s ease-in-out infinite;
-
-  transition: transform 0.25s ease, filter 0.25s ease;
-  filter: drop-shadow(0 0 18px rgba(164, 37, 233, 0.65));
-}
-
-.whatsapp-float:hover{
-  transform: scale(1.18);
-  filter: drop-shadow(0 0 28px rgba(164, 37, 233, 0.95));
-}
-
-.whatsapp-float img{
-  width: 44px;
-  height: 44px;
-  display: block;
-}
-
-/* pulso (aura) */
-@keyframes whatsappPulse{
-  0%   { box-shadow: 0 0 0 0 rgba(164, 37, 233, 0.65); }
-  70%  { box-shadow: 0 0 0 22px rgba(164, 37, 233, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(164, 37, 233, 0); }
-}
-
-/* movimento leve (sobe e desce) */
-@keyframes whatsappFloat{
-  0%, 100% { transform: translateY(0); }
-  50%      { transform: translateY(-8px); }
-}
-
-/* ajuste no celular */
-@media (max-width: 768px){
-  .whatsapp-float{
-    right: 16px;
-    bottom: 16px;
   }
-}
-
-  }
-  
